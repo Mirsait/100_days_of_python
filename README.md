@@ -6,3 +6,7 @@
 **Day 1. Band Name Generator**
 
     input(), print()
+
+**Day 2. Tip Calculator**
+
+    type(), str(), int(), float()
