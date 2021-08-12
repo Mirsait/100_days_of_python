@@ -10,3 +10,12 @@
 **Day 2. Tip Calculator**
 
     type(), str(), int(), float()
+
+**Day 3. Treasure Island**
+
+    if/elif/else
+
+
+**Day4. Rock, Paper, Scissors**
+
+    random, list
