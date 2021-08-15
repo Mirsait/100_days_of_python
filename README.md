@@ -16,6 +16,10 @@
     if/elif/else
 
 
-**Day4. Rock, Paper, Scissors**
+**Day 4. Rock, Paper, Scissors**
 
     random, list
+
+**Day 5. PyPassword Generator**
+
+    for .. in , range(), random.shuffle(), ''.join(list)
