@@ -1,0 +1,23 @@
+word_list = [
+    "vorfreude",
+    "scheinwerfer",
+    "feierabend",
+    "menschentraube",
+    "busenfreunde",
+    "fernweh",
+    "zeitfenster",
+    "wortschatz",
+    "himmelszeit",
+    "momentaufnahme",
+    "lebensinhalt",
+    "windschatten",
+    "bettgeschichte",
+    "wellenreiter",
+    "machthaber",
+    "weltschmerz",
+    "fahrtwind",
+    "handschuhe",
+    "kopfkino",
+    "lampenfieber",
+    "gaumenfreude"
+]

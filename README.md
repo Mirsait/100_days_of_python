@@ -26,4 +26,8 @@
 
 **Day 6.**
 
-    functions, while loop,
+    functions, while loop
+
+**Day 7. Hangman**
+
+    while, random, modules, list, if
