@@ -23,3 +23,7 @@
 **Day 5. PyPassword Generator**
 
     for .. in , range(), random.shuffle(), ''.join(list)
+
+**Day 6.**
+
+    functions, while loop,
