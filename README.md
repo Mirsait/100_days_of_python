@@ -31,3 +31,7 @@
 **Day 7. Hangman**
 
     while, random, modules, list, if
+
+**Day 8. Caesar cipher**
+
+    function with params
