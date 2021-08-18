@@ -35,3 +35,5 @@
 **Day 8. Caesar cipher**
 
     function with params
+
+**Day 9. The secret auction**
