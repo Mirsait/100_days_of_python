@@ -37,3 +37,5 @@
     function with params
 
 **Day 9. The secret auction**
+
+**Day 10. Calculator (console)**
