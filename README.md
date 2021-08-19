@@ -39,3 +39,7 @@
 **Day 9. The secret auction**
 
 **Day 10. Calculator (console)**
+
+**Day 11. Blackjack**
+
+    function, while, for, if, list
