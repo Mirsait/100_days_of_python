@@ -45,3 +45,5 @@
     function, while, for, if, list
 
 **Day 12. The Number Guess Game**
+
+**Day 13. The Higher-Lower Game**
