@@ -43,3 +43,5 @@
 **Day 11. Blackjack**
 
     function, while, for, if, list
+
+**Day 12. The Number Guess Game**
