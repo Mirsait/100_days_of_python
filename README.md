@@ -46,4 +46,6 @@
 
 **Day 12. The Number Guess Game**
 
-**Day 13. The Higher-Lower Game**
+**Day 13-14. The Higher-Lower Game**
+
+**Day 15. The Coffee Machine**
