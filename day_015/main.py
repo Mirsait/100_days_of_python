@@ -11,6 +11,12 @@ def get_cost(drink: str) -> float:
     return MENU[drink]["cost"]
 
 
+def get_resource_amount(resource: str) -> int:
+    if resource in resources:
+        return resources[resource]
+    return 0
+
+
 def hello():
     """ Clear and print logo"""
     print('\033c')
@@ -28,8 +34,10 @@ def print_menu():
 
 def print_report():
     print("\nReport:")
-    for item in resources:
-        print(f"| {item}: {resources[item]}")
+    print(f"Water: {get_resource_amount('water')}ml")
+    print(f"Milk: {get_resource_amount('milk')}ml")
+    print(f"Coffee: {get_resource_amount('coffee')}g")
+    print(f"Money: ${get_resource_amount('money')}")
     print("\n")
 
 
@@ -37,8 +45,9 @@ def choose_drink() -> str:
     drinks = ", ".join(list(MENU.keys()))
     while True:
         item = input(f"What would you like? ({drinks}): ")
-        if item in MENU.keys() or item == "off":
-            print(f"You choose {item}.\n")
+        if item == "report":
+            print_report()
+        elif item in MENU.keys() or item == "off":
             return item
 
 
@@ -46,7 +55,7 @@ def is_resource_enough(drink: str) -> str:
     ingredients = get_ingredients(drink)
     for ingredient in ingredients:
         need_amount = ingredients[ingredient]
-        res_amount = resources[ingredient]
+        res_amount = get_resource_amount(ingredient)
         if res_amount < need_amount:
             return ingredient
     return None
@@ -101,7 +110,7 @@ def make_coffee(drink: str):
 
 
 def get_coffee(drink: str):
-    print(f"Here is your {drink} ☕.")
+    print(f"Here is your {drink} ☕. Enjoy!")
 
 
 def off():
@@ -114,7 +123,6 @@ def coffee_machine():
     is_off = False
     hello()
     print_menu()
-    print_report()
 
     drink = choose_drink()
     if drink != "off":
@@ -130,7 +138,6 @@ def coffee_machine():
         else:
             print(f"Sorry there is not enough {lack}.\n")
 
-        print_report()
         input("Enter to continue ... ")
     else:
         is_off = True
