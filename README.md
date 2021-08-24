@@ -55,3 +55,7 @@
     OOP
 
 **Day 17. Quizbrain**
+
+**Day 18. Hirst Dot Picture**
+
+    turtle, cologram.py
