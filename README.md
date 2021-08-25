@@ -59,3 +59,7 @@
 **Day 18. Hirst Dot Picture**
 
     turtle, cologram.py
+
+**Day 19. The turtle race**
+
+    turtle, textinput, event listener
