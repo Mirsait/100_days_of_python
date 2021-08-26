@@ -63,3 +63,7 @@
 **Day 19. The turtle race**
 
     turtle, textinput, event listener
+
+**Day 20-21. The snake game**
+
+    turtle
