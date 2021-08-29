@@ -10,7 +10,7 @@ class Scoreboard(Turtle):
         super().__init__()
         self.penup()
         self.hideturtle()
-        self.color("darkgray")
+        self.color("black")
         self.setposition(position)
         self.level = 0
         self.lives = 3
@@ -18,7 +18,7 @@ class Scoreboard(Turtle):
 
     def draw(self):
         self.clear()
-        text = f"Level: {self.level}\nLives: {self.lives}"
+        text = f"Level: {self.level} Lives: {self.lives}"
         self.write(text, move=False, align="left", font=FONT)
 
     def add_level(self):

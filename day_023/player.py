@@ -13,7 +13,7 @@ class Player(Turtle):
         super().__init__()
         self.penup()
         self.shape("turtle")
-        self.color("green")
+        self.color("black")
         self.setheading(90)
         self.setposition(STARTING_POSITION)
 

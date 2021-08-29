@@ -1,4 +1,5 @@
 import random
+from street import Street
 import time
 from turtle import Screen, Turtle
 from player import Player
@@ -8,21 +9,25 @@ from scoreboard import Scoreboard
 WIDTH = 600
 HEIGHT = 600
 
-half_width = WIDTH / 2
-half_height = HEIGHT / 2
+half_width = WIDTH // 2
+half_height = HEIGHT // 2
 
 screen = Screen()
 screen.setup(width=WIDTH, height=HEIGHT)
 screen.tracer(0)
 
-scoreboard = Scoreboard(position=(-half_width+25, half_height - 100))
+street = Street(street_width=HEIGHT - 100,
+                street_length=WIDTH, count_stripes=20)
+scoreboard = Scoreboard(position=(-half_width+25, half_height - 50))
 player = Player()
 manager = CarManager()
 
 
 def get_random_position():
     r_x = half_width + 15
-    r_y = random.randint(-half_height+50, half_height-50)
+    ys = [x for x in range(-half_height+50, half_height -
+                           50, (HEIGHT - 100)//20)]
+    r_y = random.choice(ys)
     return (r_x, r_y)
 
 
