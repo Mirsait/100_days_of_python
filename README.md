@@ -71,3 +71,15 @@
 **Day 22. Ping Pong**
 
 **Day 23. The Turtle Crossing Capstone Project**
+
+**Day 24. Mail Merge. The snake game: saving highcores**
+
+    read/write files
+
+**Day 25. U.S. States Game**
+
+    csv, pandas
+
+**Day 26. NATO alphabet**
+
+    pandas, list/dict comprehension
