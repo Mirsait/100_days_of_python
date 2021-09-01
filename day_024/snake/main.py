@@ -44,8 +44,8 @@ while is_game_on:
     is_y = snake.head.ycor() > HEIGHT/2 or snake.head.ycor() < -HEIGHT/2
 
     if is_x or is_y:
-            scoreboard.reset()
-            snake.reset()
+        scoreboard.reset()
+        snake.reset()
 
     # self-killing
     for segment in snake.segments[1:]:
