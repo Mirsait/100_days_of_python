@@ -83,3 +83,7 @@
 **Day 26. NATO alphabet**
 
     pandas, list/dict comprehension
+
+**Day 27. Distance Converter**
+
+    *args, **kwargs, tkinter
