@@ -87,3 +87,7 @@
 **Day 27. Distance Converter**
 
     *args, **kwargs, tkinter
+
+**Day 28. Pomodoro timer**
+
+    tkinter, canvas
