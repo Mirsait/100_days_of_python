@@ -54,16 +54,17 @@ def search_site():
     try:
         with open(FILE_NAME, 'r') as file:
             data = json.load(file)
-            site = data[site_search]
+            if site_search in data:
+                email = data[site_search]["email"]
+                password = data[site_search]["password"]
+                message = f"Email:  {email} \nPassword:  {password}"
+                messagebox.showinfo(site_search, message)
+            else:
+                messagebox.showinfo(site_search, "No details for the website exists.")
     except FileNotFoundError:
         messagebox.showerror("Error", "No Data File Found.")
-    except KeyError:
-        messagebox.showinfo(site_search, "No details for the website exists.")
     except JSONDecodeError:
         messagebox.showinfo("Error", "Data File is empty.")
-    else:
-        message = f"Email:  {site['email']} \nPassword:  {site['password']}"
-        messagebox.showinfo(site_search, message)
 
 
 # ---------------------------- UI SETUP ------------------------------- #
