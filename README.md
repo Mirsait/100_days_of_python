@@ -94,6 +94,6 @@
 
 **Day 29. Password Manager (txt)**
 
-**Day 29. Password Manager (json)**
+**Day 30. Password Manager (json)**
 
     json, errors, exceptions
