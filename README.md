@@ -91,3 +91,9 @@
 **Day 28. Pomodoro timer**
 
     tkinter, canvas
+
+**Day 29. Password Manager (txt)**
+
+**Day 29. Password Manager (json)**
+
+    json, errors, exceptions
