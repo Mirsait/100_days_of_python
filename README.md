@@ -99,3 +99,7 @@
     json, errors, exceptions
 
 **Day 31. Flash Card App**
+
+**Day 32. Send Email**
+
+    smtplib, pandas, os, datetime
