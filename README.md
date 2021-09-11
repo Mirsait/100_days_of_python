@@ -107,3 +107,7 @@
 **Day 33. ISS Overhead Notifier Project**
 
     public API, email sending
+
+**Day 34. GUI Quiz App**
+
+    tkinter, public API
