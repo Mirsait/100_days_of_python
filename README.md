@@ -111,3 +111,7 @@
 **Day 34. GUI Quiz App**
 
     tkinter, public API
+
+**Day 35. Rain Alert**
+
+    OpenWeatherMaps API, email sending
