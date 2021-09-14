@@ -115,3 +115,7 @@
 **Day 35. Rain Alert**
 
     OpenWeatherMaps API, email sending
+
+**Day 36. Stock-News**
+
+    Twilio API(SMS), Alpha Vantage API, News API
