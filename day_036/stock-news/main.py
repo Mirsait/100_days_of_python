@@ -1,7 +1,5 @@
 from twilio.rest import Client
-import json
 import requests
-from datetime import datetime, timedelta
 
 
 STOCK = "TSLA"
@@ -17,8 +15,10 @@ PHONE_FROM = ""
 
 
 # STEP 1: Use https://www.alphavantage.co
-# When STOCK price increase/decreases by 5% between yesterday and the day before yesterday then print("Get News").
-def get_diff():
+# When STOCK price increase/decreases by 5% between yesterday and
+# the day before yesterday then print("Get News").
+
+def get_diff() -> (str, float):
     alpha_parameters = {
         "function": "TIME_SERIES_DAILY",
         "symbol": STOCK,
@@ -27,35 +27,29 @@ def get_diff():
 
     url = "https://www.alphavantage.co/query"
     response = requests.get(url, params=alpha_parameters)
-    data_av = response.json()
+    data_av = response.json()["Time Series (Daily)"]
 
     # with open(file='alphavantage.json', mode='w', encoding="utf-8") as outfile:
     #     json.dump(data_av, fp=outfile, ensure_ascii=False, indent=4)
 
-    if datetime.today().weekday() == 0:
-        yesterday1 = (datetime.today() - timedelta(days=3)).date().isoformat()
-        yesterday2 = (datetime.today() - timedelta(days=4)).date().isoformat()
-    elif datetime.today().weekday() == 1:
-        yesterday1 = (datetime.today() - timedelta(days=1)).date().isoformat()
-        yesterday2 = (datetime.today() - timedelta(days=4)).date().isoformat()
-    else:
-        yesterday1 = (datetime.today() - timedelta(days=1)).date().isoformat()
-        yesterday2 = (datetime.today() - timedelta(days=2)).date().isoformat()
+    data_list = [value for (key, value) in data_av.items()][:2]
+    date_list = list(data_av.keys())[:3]
 
-    data1 = data_av["Time Series (Daily)"][str(yesterday1)]
-    data2 = data_av["Time Series (Daily)"][str(yesterday2)]
-    close1 = float(data1["4. close"])
-    close2 = float(data2["4. close"])
+    yesterday_data = float(data_list[0]["4. close"])
+    before_yesterday_data = float(data_list[1]["4. close"])
+    from_date = date_list[2]
 
-    diff = (close2 - close1)/close2 * 100.0
-    return (yesterday2, diff)
+    difference = (before_yesterday_data - yesterday_data)/yesterday_data * 100.0
+
+    return (from_date, difference)
 
 
 # STEP 2: Use https://newsapi.org
 def get_top_3_news(news_date):
     news_api_url = "https://newsapi.org/v2/everything"
     news_parameters = {
-        "q": "tesla",
+        "q": COMPANY_NAME,
+        "qInTitle": COMPANY_NAME,
         "from": news_date,
         "sortBy": "publishedAt",
         "language": "en",
@@ -73,28 +67,29 @@ def get_top_3_news(news_date):
 
 
 # STEP 3: Use https://www.twilio.com
-# Send a seperate message with the percentage change and each article's title and description to your phone number.
+# Send a seperate message with the percentage change and
+# each article's title and description to your phone number.
 def send_sms(message):
     client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
     message = client.messages.create(
-        to = PHONE_TO,
-        from_ = PHONE_FROM,
-        body = message
+        to=PHONE_TO,
+        from_=PHONE_FROM,
+        body=message
     )
     print(message.sid)
 
 
-def format_message(diff, news_piece):
-    icon = '↑' if diff > 0 else '↓'
+def format_message(difference, news_piece):
+    icon = '↑' if difference > 0 else '↓'
     topic = f"{STOCK}: {icon}{abs(diff):.2f}%"
     headline = f"Headline: {news_piece[0]}"
     brief = f"Brief: {news_piece[1]}"
     return f"{topic}\n{headline}\n{brief}"
 
 
-(yesterday2, diff) = get_diff()
+(news_from_date, diff) = get_diff()
 if abs(diff) >= 5:
-    top_3 = get_top_3_news(yesterday2)
-    for item in top_3:
+    top_3_news = get_top_3_news(news_from_date)
+    for item in top_3_news:
         sms_text = format_message(diff, item)
         send_sms(sms_text)
