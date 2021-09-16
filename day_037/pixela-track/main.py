@@ -1,8 +1,8 @@
 from datetime import datetime
 import requests
 
-PIXELA_TOKEN = "2701-8712-0492-0206-6417-0767"
-PIXELA_USERNAME = "mirsaitby"
+PIXELA_TOKEN = "your own token"
+PIXELA_USERNAME = "your own username"
 pixela_endpoint = "https://pixe.la/v1/users"
 pixela_graphs_endpoint = f"{pixela_endpoint}/{PIXELA_USERNAME}/graphs"
 headers = {"X-USER-TOKEN": PIXELA_TOKEN}
@@ -79,7 +79,7 @@ def add_pixel(graph_id: str, date: datetime, headers: dict, quatity: float):
 
 create_user(token=PIXELA_TOKEN, username=PIXELA_USERNAME)
 
-graph_id = "mirsait-piano-21"
+graph_id = "piano-21"
 create_graph_data = {
     "id": graph_id,
     "name": "piano-practice",
