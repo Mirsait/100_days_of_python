@@ -39,7 +39,7 @@ def get_diff() -> (str, float):
     before_yesterday_data = float(data_list[1]["4. close"])
     from_date = date_list[2]
 
-    difference = (before_yesterday_data - yesterday_data)/yesterday_data * 100.0
+    difference = (before_yesterday_data - yesterday_data) / yesterday_data * 100.0
 
     return (from_date, difference)
 
